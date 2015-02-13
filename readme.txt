@@ -13,7 +13,6 @@ Tested Up To: 4.1
 Tags:job search, job search listing, widget, wordpress, wordpress.org,
 
 Stable tag: 1.1
-
 Simple widget which fetch jobs from careerbuilder.com api .
 
 == 
