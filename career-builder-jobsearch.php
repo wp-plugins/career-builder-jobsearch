@@ -3,7 +3,7 @@
 Plugin Name: career builder job search 
 Plugin URI: http://www.phpmentors.in/career_builder_jobsearch
 Description: A  plugin that is used to search and fetch jobs from career builder api..
-Version: 1.0
+Version: 1.0.1
 Author: ashwini singh
 Author URI: http://www.phpmentors.in
 License: GPL2
@@ -54,6 +54,10 @@ class career_builder_jobsearch extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'cbj_PerPage' ); ?>"><?php _e('No. of jobs:', 'hybrid'); ?></label>
 			<input id="<?php echo $this->get_field_id( 'cbj_PerPage' ); ?>" name="<?php echo $this->get_field_name( 'cbj_PerPage' ); ?>" value="<?php echo $instance['cbj_PerPage']; ?>" style="width:100%;" />
 		</p>
+			<p>
+			<label for="<?php echo $this->get_field_id( 'cbj_daysBackToLook' ); ?>"><?php _e('number of days back to look(1-30):', 'hybrid'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'cbj_daysBackToLook' ); ?>" name="<?php echo $this->get_field_name( 'cbj_daysBackToLook' ); ?>" value="<?php echo $instance['cbj_daysBackToLook']; ?>" style="width:100%;" />
+		</p>
 	<?php }
 
 	// widget update
@@ -66,6 +70,7 @@ class career_builder_jobsearch extends WP_Widget {
 		$instance['cbj_keywords'] = strip_tags( $new_instance['cbj_keywords'] );
 		$instance['cbj_CountryCode'] = strip_tags( $new_instance['cbj_CountryCode'] );
 		$instance['cbj_PerPage'] = strip_tags( $new_instance['cbj_PerPage'] );
+		$instance['cbj_daysBackToLook'] = strip_tags( $new_instance['cbj_daysBackToLook'] );
 		return $instance;
 	}
 
@@ -80,11 +85,12 @@ class career_builder_jobsearch extends WP_Widget {
 		$cbj_keywords=$instance['cbj_keywords'];
 		$cbj_CountryCode=$instance['cbj_CountryCode'];
 		$cbj_PerPage=$instance['cbj_PerPage'];
+		$daysBackToLook=$instance['cbj_daysBackToLook'];
 		/* Before widget (defined by themes). */
 		
 		echo $before_widget;
 		if($cbj_DeveloperKey!=''){   
-		$xml=simplexml_load_file("http://api.careerbuilder.com/V1/jobsearch?DeveloperKey=$cbj_DeveloperKey&keywords=$cbj_keywords&CountryCode=$cbj_CountryCode&PerPage=$cbj_PerPage");
+		$xml=simplexml_load_file("http://api.careerbuilder.com/V1/jobsearch?DeveloperKey=$cbj_DeveloperKey&keywords=$cbj_keywords&CountryCode=$cbj_CountryCode&PerPage=$cbj_PerPage&PostedWithin=$daysBackToLook");
 		}
 ?>
 <style>
