@@ -3,7 +3,7 @@
 Plugin Name: career builder job search 
 Plugin URI: http://www.phpmentors.in/career_builder_jobsearch
 Description: A  plugin that is used to search and fetch jobs from career builder api..
-Version: 1.1
+Version: 1.2
 Author: ashwini singh
 Author URI: http://www.phpmentors.in
 License: GPL2
