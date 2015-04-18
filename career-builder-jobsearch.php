@@ -120,18 +120,26 @@ class career_builder_jobsearch extends WP_Widget {
     color: #000000;
     background-color: #EAF2D3;
 }
+
+#sidebar .widget {
+background-color: white;
+border: 1px solid #E6E6E6;
+margin: 0 0 15px; }
 </style>
+
 <?php if(isset($xml->Results)) {?>
-<table  id="jobs" >
-<tr><th><?=$cbj_title; ?> <th></tr>
+<?php echo '<div class="widget-text wp_widget_plugin_box">'; 
+ echo $before_title . $cbj_title . $after_title; ?>
+<table id="jobs">
+
 
 <?php foreach($xml->Results->JobSearchResult as $result)
 {?>
 <tr><td><?php echo $result->Company; ?></td><td><a href="<?php echo $result->JobDetailsURL; ?>" target="_blank">more info</a></td></tr>
-<?php echo $after_widget;
-	}?>
+	<?php }?>
 	</table>
-	
+	<?php echo '</div>';
+   echo $after_widget; ?>
 
 			
 			
