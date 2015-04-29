@@ -8,7 +8,7 @@ Plugin URL:http://www.phpmentors.in/downloads/download-career-builder-job-search
 
 Requires at Least: 3.0
 
-Tested Up To: 4.1
+Tested Up To: 4.2.1
 
 Tags:job search, job search listing, widget, wordpress, wordpress.org,
 
